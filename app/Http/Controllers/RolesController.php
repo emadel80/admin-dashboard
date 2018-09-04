@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use DB;
 
 class RolesController extends Controller
 {
@@ -71,7 +74,7 @@ class RolesController extends Controller
 					->where("role_has_permissions.role_id", $id)
 					->get();
 			
-			return view('roles.view', compact('role', 'rolePermissions'));
+			return view('roles.show', compact('role', 'rolePermissions'));
 		}
 
     /**
